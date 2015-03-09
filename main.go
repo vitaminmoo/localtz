@@ -45,7 +45,7 @@ func main() {
 		log.Fatalf("Unable to load local timezone: %v", err)
 	}
 	locflag := loc.String()
-	flag.StringVar(&locflag, "l", locflag, "location (or set ZONEINFO)")
+	flag.StringVar(&locflag, "l", locflag, "location")
 
 	verbose := false
 	flag.BoolVar(&verbose, "v", verbose, "toggle verbose output")
@@ -70,7 +70,7 @@ func main() {
 			if verbose {
 				log.Printf("Parsed using %s", tf)
 			}
-			fmt.Println(t.In(loc).Format(tf.layout))
+			fmt.Printf("From %s: %s     To %s: %s\n", t.Location(), args[0], loc, t.In(loc).Format(tf.layout))
 			return
 		}
 		if verbose {
