@@ -2,6 +2,12 @@
 
 Simple command line utility to convert a time to the local timezone:
 
+## Install
+
+alias localtz="perl -MDate::Parse -le'print scalar localtime str2time(join qq| |, @ARGV)'"
+
+## Usage
+
 
 ```bash
 localtz '2015/03/08 23:14:36.576524'
